@@ -1,0 +1,1 @@
+# Membership based site with both public content and subscriber only content behind the paywall
