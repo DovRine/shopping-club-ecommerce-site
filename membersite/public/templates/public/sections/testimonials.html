@@ -1,0 +1,30 @@
+{% load static %}
+<div class="site-section testimonial-wrap" id="testimonials-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h3 class="section-sub-title">People Says</h3>
+                <h2 class="section-title mb-3">Testimonials</h2>
+            </div>
+        </div>
+    </div>
+    <div class="slide-one-item home-slider owl-carousel">
+        {% for testimonial in testimonials %}
+            <div>
+                <div class="testimonial">
+                    <figure class="mb-4 d-block align-items-center justify-content-center">
+                        <div>
+                            <img src="{{ testimonial.image }}" alt="Image" class="w-100 img-fluid mb-3">
+                        </div>
+                    </figure>
+                    <blockquote class="mb-3">
+                        <p>&ldquo;{{ testimonial.quote }}&rdquo;</p>
+                    </blockquote>
+                    <p class="text-black">
+                        <strong>{{ testimonial.client }}</strong>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

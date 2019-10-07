@@ -1,0 +1,35 @@
+{% load static %}
+<div class="product-item">
+    <figure>
+        <img
+            src="{{ product_item.image }}"
+            alt="Image"
+            class="img-fluid"
+        />
+    </figure>
+    <div class="px-4">
+        <h3>
+            <a href="#">{{ product_item.title }}</a>
+        </h3>
+        <div class="mb-3">
+            <span class="meta-icons mr-3">
+                <a href="#" class="mr-2">
+                    <span class="icon-star text-warning"></span>
+                </a>
+                {{ product_item.rating }}
+            </span>
+            <span class="meta-icons wishlist">
+                <a href="#" class="mr-2">
+                    <span class="icon-heart"></span>
+                </a>
+                {{ product_item.likes }}
+            </span
+            >
+        </div>
+        <p class="mb-4">{{ product_item.short_description }}</p>
+        <div>
+            <a href="{{cart_link}}" class="btn btn-black mr-1 rounded-0">Cart</a>
+            <a href="{{detail_link}}" class="btn btn-black btn-outline-black ml-1 rounded-0">View</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{% load static %}
+<div class="site-section" id="blog-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+            <h3 class="section-sub-title">Blog</h3>
+            <h2 class="section-title mb-3">Blog Posts</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for post in blog_posts %}
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
+                    <div class="h-entry">
+                        <img src="{{ post.image }}" alt="Image" class="img-fluid">
+                        <h2 class="font-size-regular">
+                            <a href="{{ post.id }}" class="text-black">{{post.title}}</a>
+                        </h2>
+                        <div class="meta mb-4">
+                            {{ post.author }}
+                            <span class="mx-2">&bull;</span>
+                            {{ post.date }}
+                            <span class="mx-2">&bull;</span>
+                            <a href="{{ post.category_url }}">{{ post.category }}</a>
+                        </div>
+                        <p>
+                            {{ post.content }}
+                        </p>
+                        <p>
+                            <a href="{{ post.id }}">Continue Reading...</a>
+                        </p>
+                    </div> 
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
