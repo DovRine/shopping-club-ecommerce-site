@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
+from .models import Product
+
 company_info = {
     'phone': '(+1) 234 5678 9101',
     'email': 'shop@yourdomain.com',
@@ -37,62 +39,6 @@ company_info = {
         },
     ]
 }
-product_items = [
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/model_1_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/model_2_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/model_3_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/model_4_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/model_5_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-    {
-        'title': 'Wild West Hoodie',
-        'image': static('public/images/product_1_bg.jpg'),
-        'rating': 5.0,
-        'likes': 29,
-        'short_description': 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-        'cart_link': '#',
-        'detail_link': '#'
-    },
-]
 blog_posts = [
     {
         'id' : '#',
@@ -214,6 +160,8 @@ featured_products = [
     },
 ]
 def index(request):
+    product_items = Product.objects.all()
+
     return render(request, template_name='public/index.html', context={
         'blog_posts': blog_posts,
         'company_info': company_info,
